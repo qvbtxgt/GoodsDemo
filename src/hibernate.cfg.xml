@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    	<property name="connection.username">root</property>
+    	<property name="connection.password"></property>
+    	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    	<!-- 指定数据库的名称，及字符的编码、解码格式 ，其中&的转义字符也就是&amp-->
+    	<property name="connection.url">jdbc:mysql://localhost:3306/my?useUnicode=true&amp;characterEncoding=UTF-8</property>
+    	<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+    	
+    	<property name="show_sql">true</property>
+    	<property name="format_sql">true</property>
+    	<property name="hbm2ddl.auto">update</property>
+		
+		<mapping resource="com/entity/Students.hbm.xml"/><!-- 映射到没有用注解创建的对象实体 --> 
+		<mapping resource="com/entity/Grade.hbm.xml"/><!-- 映射到没有用注解创建的对象实体 --> 
+		<!--<mapping class="com.entity.People"/> 映射到利用注解创建的对象实体 -->
+		<!-- 需要注意映射文件对应的目录 -->
+    </session-factory>
+</hibernate-configuration>
